@@ -1,0 +1,343 @@
+/*
+Theme Name: Niels 't Hooft 2016
+Theme URI: http://nielsthooft.com/
+Description: Een eigen theme, een plek onder de zon.
+Version: 1.0
+Author: Niels 't Hooft
+Author URI: http://nielsthooft.com/
+*/
+
+
+html, body, h1, h2, h3, h4, h5, h6, table, tr, td, fieldset, p, ul, ol, li, dl, dt, dd, form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
+/*
+BLAUW #0834b8
+ORANJE #ff7621
+*/
+
+html {
+  font-size: 62.5%;
+  /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+
+  -webkit-text-size-adjust: 100%;
+  /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+
+  -ms-text-size-adjust: 100%;
+  /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+body {
+	font-family: "Alegreya", serif;
+	margin: 0 auto;
+	padding: 3.2em 1.6em;
+	text-rendering: optimizeLegibility;
+	background-color: white;
+}
+
+
+#menu img {
+	width: 5.2em;
+	height: auto;
+	padding-bottom: 0.8em;
+}
+
+#article,
+#footer,
+#bodytekst {
+	clear: both;
+	padding-top: 2.2em;
+}
+
+#artikelrij+#article {
+	padding-top: 1.1em;
+}
+
+#bodytekst {
+	padding-top: 0.8em;
+}
+
+#menu li,
+#footer li,
+#artikelrij li,
+strong.shout,
+h1, h2, h3 {
+	font-family: "Alegreya Sans", sans-serif;
+}
+
+h1, h2, h3,
+strong.shout {
+	font-weight: 500;
+}
+
+h1 {
+	margin-bottom: 0.2em;
+}
+
+h2 {
+	margin-bottom: 0.3em;
+}
+
+#bodytekst h2 {
+	margin-bottom: 0.75em;	
+}
+
+p, li {
+	margin-bottom: 1.25em; 
+
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; 
+}
+
+strong.shout { /* voor kreten aan begin van regel */
+	font-size: 1.25em;
+}
+
+.highlight {
+	background-color: #ffff00;
+}
+
+
+ul, ol, blockquote {
+	margin: 0 0 0 1.25em;
+	padding: 0;
+}
+
+a {
+	color: #0834b8;
+}
+
+a:hover {
+	background-color: #0834b8;
+	color: white;
+	text-decoration: none;
+}
+
+sup {
+	line-height: 0;
+}
+
+#menu ul,
+#footer ul {
+	padding: 0;
+	margin: 0;
+}
+
+#menu li {
+	float: left;
+	display: inline;
+	padding: 0;
+	padding-right: 0.5em;
+	margin: 0;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+#menu li.menu-item-4632,
+#menu li.menu-item-4625,
+#menu li.menu-item-4538,
+#menu li.menu-item-4626,
+#menu li.menu-item-4774,
+#menu li.menu-item-5236,
+#menu li.menu-item-5234 {
+	font-style: italic;
+}
+
+#menu li:first-child {
+	font-weight: bold;
+}
+
+#menu li.menu-item-4535 a,
+#menu li.menu-item-4624 a,
+#menu li.menu-item-4787 a {
+	color: #ff7621;
+}
+
+#menu li.menu-item-4535 a:hover,
+#menu li.menu-item-4624 a:hover,
+#menu li.menu-item-4787 a:hover {
+	background-color: #ff7621;
+	color: white;
+}
+
+#footer li {
+	margin-bottom: 0;
+	list-style: none;
+}
+
+
+
+/* articlefeed */
+
+ul#artikelrij {
+  margin: 0;
+  padding-top: 0.8em;
+  list-style: none;
+  clear: both;
+}
+
+.page-id-4613 ul#artikelrij,
+.page-id-4713 ul#artikelrij { /* op de (engelse) homepage */
+	padding-top: 3em;
+}
+
+	ul#artikelrij li {
+		display: table;
+		float: left;
+		margin-bottom: 0.8em;
+		clear: both;
+	}
+
+		.artikelrij-plaatje,
+		.artikelrij-leegveld,
+		.artikelrij-tekst,
+		.artikelrij-taal {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		
+		.artikelrij-leegveld.groot,
+		.artikelrij-plaatje.groot {
+			width: 3em;
+			height: 3em;			
+		}
+		
+		.artikelrij-leegveld.klein,
+		.artikelrij-plaatje.klein {
+			width: 2em;
+			height: 2em;			
+
+		}
+		
+			.artikelrij-leegveld span,
+			.artikelrij-plaatje img { 
+				display: table-cell;
+				vertical-align: middle;
+				width: inherit;
+				height: inherit;
+			}
+			
+			.groot span,
+			.groot img {			
+				-moz-border-radius: 0.45em;
+				-webkit-border-radius: 0.45em;
+				border-radius: 0.45em;
+				font-size: 1.5em;				
+			}
+			
+			.klein span,
+			.klein img {
+				-moz-border-radius: 0.3em;
+				-webkit-border-radius: 0.3em;
+				border-radius: 0.3em;
+				font-size: 1em;
+			}
+
+			span.saai {
+				background-color: #ff7621;
+			}
+
+			span.nrc {
+				background-color: #e70100;
+			}
+
+			span.weeknotes {
+				background-color: #0834b8;
+				color: white;
+				text-align: center;
+			}
+			
+
+		.groot2 {
+			padding: 0 0.4em 0 0.8em;
+		}
+
+		.klein2 {
+			padding: 0 0.2em 0 0.4em;
+		}
+
+
+		.artikelrij-taal {
+			width: 1em;
+		}		
+
+		.artikelrij-taal span {
+			position: relative;
+			top: 0.2em;
+			padding: 0.1em 0.2em 0 0.2em;
+			background-color: #ff7621;
+			-moz-border-radius: 0.3em;
+			-webkit-border-radius: 0.3em;
+			border-radius: 0.3em;
+			font-size: 0.4em;			
+			color: white;
+		}
+		
+
+
+/* images */
+
+img.size-large {
+	width: 100%;
+	height: auto;
+}
+
+.embed-youtube,
+.embed-vimeo {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+	margin-bottom: 1.25em;
+}
+.embed-youtube iframe,
+.embed-vimeo iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+img.centered {
+	display: block;
+	xxmargin-left: auto;
+	xxmargin-right: auto;
+	}
+
+img.alignright {
+	padding: 0;
+	margin: 0 0 0.8em 0.8em;
+	display: inline;
+	width: 33.33%;
+	height: auto;
+	}
+
+img.alignleft {
+	padding: 0;
+	margin: 0 0.8em 0.8em 0;
+	display: inline;
+	width: 33.33%;
+	height: auto;
+	}
+
+.alignright {
+	float: right;
+	}
+
+.alignleft {
+	float: left;
+	}
+
+.powerpress_player {
+	margin-bottom: 1.25em;	
+}
+

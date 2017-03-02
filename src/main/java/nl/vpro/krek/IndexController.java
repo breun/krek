@@ -33,7 +33,6 @@ public class IndexController {
         model.addAttribute("seizoen", Season.of(now).toString());
         model.addAttribute("temperatuur", weatherService.getTemperatureInDegreesCelcius());
 
-
         model.addAttribute("donker", darkness(now.getHour()));
         model.addAttribute("dagdeel", daypart(now.getHour()));
         model.addAttribute("rangtelwoord", rangtelwoord(now.getDayOfMonth()));
@@ -45,23 +44,37 @@ public class IndexController {
     }
 
     private String darkness(final int hour) {
-        return hour < 8 || hour > 18 ? "donker" : "licht"; // TODO: Make this more accurate
+        if (hour < 8) {
+            return "nog donker";
+        } else if (hour < 12) {
+            return "al licht";
+        } else if (hour < 18) {
+            return "nog licht";
+        } else {
+            return "al donker";
+        }
     }
 
     private String daypart(final int hour) {
-        if (hour < 6) {
-            return "nacht";
+        if (hour <= 3) {
+            return "vroege nacht";
+        } else if (hour <= 6) {
+            return "late nacht";
+        } else if (hour <= 9) {
+            return "vroege ochtend";
+        } else if (hour <= 12) {
+            return "late ochtend";
+        } else if (hour <= 15) {
+            return "vroege middag";
+        } else if (hour <= 18) {
+            return "late middag";
+        } else if (hour <= 21) {
+            return "vroege avond";
+        } else if (hour <= 24) {
+            return "late avond";
+        } else {
+            throw new IllegalArgumentException("Unknow hour: " + hour);
         }
-        else if (hour < 12) {
-            return "ochtend";
-        }
-        else if (hour < 18) {
-            return "middag";
-        }
-        else if (hour < 24) {
-            return "avond";
-        }
-        throw new IllegalArgumentException("Unknow hour: " + hour);
     }
 
     private String rangtelwoord(final int dayOfMonth) {
