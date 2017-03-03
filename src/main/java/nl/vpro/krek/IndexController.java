@@ -15,12 +15,15 @@ public class IndexController {
 
     private static final Locale LOCALE = new Locale("nl", "nl");
 
+    private final FilterService filterService;
+
     private final WeatherService weatherService;
 
     private final LocationService locationService;
 
     @Autowired
-    public IndexController(WeatherService weatherService, LocationService locationService) {
+    public IndexController(FilterService filterService, WeatherService weatherService, LocationService locationService) {
+        this.filterService = filterService;
         this.weatherService = weatherService;
         this.locationService = locationService;
     }
@@ -40,7 +43,7 @@ public class IndexController {
         model.addAttribute("jaar", now.getYear());
         model.addAttribute("stad", locationService.getCity());
 
-        model.addAttribute("filters", Filter.values());
+        model.addAttribute("filters", filterService.getAll());
 
         return "index";
     }

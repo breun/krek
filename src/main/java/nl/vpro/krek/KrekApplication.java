@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.List;
 import java.util.Locale;
 
 @SpringBootApplication
@@ -16,11 +15,14 @@ public class KrekApplication {
 		SpringApplication.run(KrekApplication.class, args);
 	}
 
+	@Bean
+    public FilterService filterService() {
+	    return new FilterServiceImpl(data().getFilters());
+    }
+
     @Bean
     public ItemService itemService() {
-	    CsvDataLoader loader = new CsvDataLoader();
-	    List<Item> items = loader.loadObjectList(Item.class, "content.csv");
-	    return new ItemServiceImpl(items);
+	    return new ItemServiceImpl(data().getItems());
     }
 
 	@Bean
@@ -30,7 +32,7 @@ public class KrekApplication {
 
 	@Bean
     public LocationService locationService() {
-	    return new DummyLocationService();
+	    return new DummyLocationService("Eindhoven"); // TODO: Use an actual Geo-IP lookup service
     }
 
     @Bean
@@ -38,5 +40,10 @@ public class KrekApplication {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         sessionLocaleResolver.setDefaultLocale(new Locale("nl", "nl"));
         return sessionLocaleResolver;
+    }
+
+    @Bean
+    public Data data() {
+        return new Data();
     }
 }
