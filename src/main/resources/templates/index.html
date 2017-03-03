@@ -8,28 +8,30 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-		<script type="text/javascript">
-		$(document).ready(function(){
-		        // iOS web app full screen hacks.
-		        if(window.navigator.standalone == true) {
-		                // make all link remain in web app mode.
-		                $('a').click(function() {
-		                        window.location = $(this).attr('href');
-		            return false;
-		                });
-		        }
-		});
-		</script>
-
-
-
 		<title>Krek</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Volkhov" rel="stylesheet" />
 
-		<link rel="stylesheet" media="all and (max-width:660px)" href="klein.css" /> 
-		<link rel="stylesheet" media="all and (min-width:661px)" href="groot.css" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" media="all and (max-width:660px)" href="/klein.css" /> 
+		<link rel="stylesheet" media="all and (min-width:661px)" href="/groot.css" />
+		<link rel="stylesheet" href="/style.css" />
+
+
+		<link rel="apple-touch-icon" href="/app_icoon_krek.png" />
+
+
+		<script type="text/javascript">
+			function fullscreen() {
+			    $('a').click(function() {
+			        if(!$(this).hasClass('noeffect')) {
+			            window.location = $(this).attr('href');
+			            return false;
+			        }
+			    });
+			}
+			 
+			fullscreen();
+		</script>
 
 	</head>
 	<body>
@@ -65,7 +67,7 @@
 
 		<div id="filtermenu" th:each="filter : ${filters}">
 			
-			<a class="filteritem" href="/verhaal">
+			<a class="filteritem" th:href="@{/item(filter=${filter.name})}">
 			<div class="blokje" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',0.6);'"></div>
 			
 			<h4 class="tekst" th:text="${filter.name}">Hadewych</h4>
@@ -75,34 +77,6 @@
 		<div style="clear: both;"></div>
 		
 		
-		<div id="shotjeverhaal">
-			<h1>Vandaag zie je er...</h1>
-			<h2>Peter Verhelst</h2>
-			
-			
-			<p>Vandaag zie je er zo merkwaardig gaaf uit.<br />
-die glimlach van je<br />
-alsof een parkiet over je gezicht klimt.</p>
-
-<p>Voor het eerst in jaren beweegt het  kogelgewricht weer, de kop<br />
-wentelt weer in de kom, de pezen van de lach<br />
-spannen zich weer op, terwijl je zegt: weet je nog,<br />
-we lagen op een rots over de inham uit te kijken en we wisten<br />
-dat het nooit mooier kon worden dan dit</p>
-
-<p>en daarna keken we in de zon.<br />
-Schepen voeren voorbij, alsof ze een berg wilden verplaatsen.<br />
-ik nam je gezicht vast zoals je handen rond de kop legt<br />
-van een hond en met je duimen de ooghoeken naar achteren<br />
-en het fluweel van de oren in glansrichting streelt.</p>
-
-<p>Ben je gelukkig nu?</p>
-
-<p>Op de rots krult de hond zich nog op, zijn poten<br />
-onder zijn lichaam gevouwen, de neus tegen zijn staart. Kijk<br />
-hoe hij trilt op de rots als de schaduw van een hijgend boompje.</p>
-
-<p>Zo’n zonde dat we nooit echt de tijd hebben genomen om…</p>
-		</div>
+		
 	</body>
 </html>

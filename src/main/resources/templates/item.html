@@ -1,18 +1,33 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="nl">
+<html xmlns:th="http://www.thymeleaf.org" lang="nl" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',0.5); background-blend-mode: screen;'">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title th:text="${titel} + ' - ' + ${auteur} + ' - Krek'">Titel - Auteur - Krek</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<title th:text="${titel} + ' - ' + ${auteur} + ' - Krek'">Titel - Auteur - Krek</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Volkhov" rel="stylesheet" />
+
+		<link rel="stylesheet" media="all and (max-width:660px)" href="/klein.css" /> 
+		<link rel="stylesheet" media="all and (min-width:661px)" href="/groot.css" />
+		<link rel="stylesheet" href="/style.css" />
+
+		<link rel="apple-touch-icon" href="/app_icoon_krek.png" />
+
 </head>
 <body>
-    <h1 th:text="${titel}">Titel</h1>
-    <h2 th:text="${auteur}">Auteur</h2>
-    <div th:utext="${tekst}">Tekst.</div>
-    <div>Filternaam: <span th:text="${filter.name}">Hadewych</span></div>
-    <div>Rood: <span th:text="${filter.color.red}">0</span></div>
-    <div>Groen: <span th:text="${filter.color.green}">0</span></div>
-    <div>Blauw: <span th:text="${filter.color.blue}">0</span></div>
+
+    <div id="shotjeverhaal">
+
+	    <h1 th:text="${titel}">Titel</h1>
+	    <h2 th:text="${auteur}">Auteur</h2>
+	    <div th:utext="${tekst}">Tekst.</div>
+	    
+        
+	</div>
 </body>
 </html>
