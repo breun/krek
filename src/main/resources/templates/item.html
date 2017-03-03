@@ -30,7 +30,9 @@
 	    <h2 th:text="${auteur}">Auteur</h2>
 	    <h1 th:text="${titel}">Titel</h1>
 	    
-	   <p align="center"><a th:href="${audioLink}"><img src="/icoon_audio.png" height="100" width="100" /></a></p>
+	   <p align="center"><a th:href="${audioLink}"><img th:src="${filter.name == 'Ollie'}? '/icoon_audio_black.png' : '/icoon_audio.png'" height="85" width="85" /></a></p>
+	    
+	    
 	    
 	    <div th:utext="${tekst}">Tekst.</div>
 	   
