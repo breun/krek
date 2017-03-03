@@ -48,5 +48,12 @@
                 <p><a class="btn btn-primary btn-lg" href="/verhaal" role="button">Go &raquo;</a></p>
             </div>
         </div>
+
+		<div th:each="filter : ${filters}">
+			<div th:text="${filter.name}">Hadewych</div>
+            <div>Red: <span th:text="${filter.color.red}">0</span></div>
+            <div>Green: <span th:text="${filter.color.green}">0</span></div>
+            <div>Blue: <span th:text="${filter.color.blue}">0</span></div>
+		</div>
 	</body>
 </html>

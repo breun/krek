@@ -40,6 +40,8 @@ public class IndexController {
         model.addAttribute("jaar", now.getYear());
         model.addAttribute("stad", locationService.getCity());
 
+        model.addAttribute("filters", Filter.values());
+
         return "index";
     }
 
