@@ -3,20 +3,48 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+		        // iOS web app full screen hacks.
+		        if(window.navigator.standalone == true) {
+		                // make all link remain in web app mode.
+		                $('a').click(function() {
+		                        window.location = $(this).attr('href');
+		            return false;
+		                });
+		        }
+		});
+		</script>
+
+
+
 		<title>Krek</title>
-		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+		<link rel="stylesheet" media="all and (max-width:660px)" href="klein.css" /> 
+		<link rel="stylesheet" media="all and (min-width:661px)" href="groot.css" />
+		<link rel="stylesheet" href="style.css" />
+
 	</head>
 	<body>
         <div class="jumbotron">
             <div class="container">
                 <h1>Krek</h1>
+                <h2>een verhaal voor nu</h2>
+<!--
                 <p th:text="'Het is ' + ${seizoen} + '. Het is ' + ${weekdag} + ' en het is ' + ${temperatuur} + ' graden.'">
                     Het is winter. Het is maandag en het is 0 graden.
                 </p>
-                <p th:text="'Het was nog ' + ${donker} + ', toen in de ' + ${dagdeel} + ' van de ' + ${rangtelwoord} + ' ' + ${maand} + ' ' + ${jaar} + ' in ' + ${stad} + '...'">
+-->
+                <h3 th:text="'Het was nog ' + ${donker} + ', toen in de ' + ${dagdeel} + ' van de ' + ${rangtelwoord} + ' ' + ${maand} + ' ' + ${jaar} + ' in ' + ${stad} + '...'">
                     Het was nog donker, toen in de vroege morgen van de twee en twintigste December 1946 in onze stad...
-                </p>
+                </h3>
+                <h2>Kies een filter</h2>
+
                 <p><a class="btn btn-primary btn-lg" href="/verhaal" role="button">Go &raquo;</a></p>
             </div>
         </div>

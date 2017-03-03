@@ -1,13 +1,3 @@
-/*
-Theme Name: Niels 't Hooft 2016
-Theme URI: http://nielsthooft.com/
-Description: Een eigen theme, een plek onder de zon.
-Version: 1.0
-Author: Niels 't Hooft
-Author URI: http://nielsthooft.com/
-*/
-
-
 html, body, h1, h2, h3, h4, h5, h6, table, tr, td, fieldset, p, ul, ol, li, dl, dt, dd, form {
   margin: 0;
   padding: 0;
@@ -15,10 +5,23 @@ html, body, h1, h2, h3, h4, h5, h6, table, tr, td, fieldset, p, ul, ol, li, dl, 
 }
 
 
-/*
-BLAUW #0834b8
-ORANJE #ff7621
-*/
+@font-face {
+  font-family: 'SimplisticSans-Bold';
+  src:  url('SimplisticSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SimplisticSans-Medium';
+  src:  url('SimplisticSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SimplisticSans-Normal';
+  src:  url('SimplisticSans-Normal.ttf') format('truetype');
+}
+
+
+
 
 html {
   font-size: 62.5%;
@@ -29,14 +32,24 @@ html {
 
   -ms-text-size-adjust: 100%;
   /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+
+  background: url(clouds.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+  background-color: gray;
+  color: white;
+
 }
 
 body {
-	font-family: "Alegreya", serif;
+	font-family: "SimplisticSans-Bold";
 	margin: 0 auto;
-	padding: 3.2em 1.6em;
+	padding: 2.4em 1.6em;
 	text-rendering: optimizeLegibility;
-	background-color: white;
+	/* background-color: white; */
 }
 
 
@@ -66,7 +79,7 @@ body {
 #artikelrij li,
 strong.shout,
 h1, h2, h3 {
-	font-family: "Alegreya Sans", sans-serif;
+	font-family: "SimplisticSans-Bold";
 }
 
 h1, h2, h3,
@@ -80,7 +93,13 @@ h1 {
 
 h2 {
 	margin-bottom: 0.3em;
+	font-family: "SimplisticSans-Normal";
 }
+
+h3 {
+	padding-left: 0.5em;
+}
+
 
 #bodytekst h2 {
 	margin-bottom: 0.75em;	
@@ -175,112 +194,7 @@ sup {
 
 
 
-/* articlefeed */
 
-ul#artikelrij {
-  margin: 0;
-  padding-top: 0.8em;
-  list-style: none;
-  clear: both;
-}
-
-.page-id-4613 ul#artikelrij,
-.page-id-4713 ul#artikelrij { /* op de (engelse) homepage */
-	padding-top: 3em;
-}
-
-	ul#artikelrij li {
-		display: table;
-		float: left;
-		margin-bottom: 0.8em;
-		clear: both;
-	}
-
-		.artikelrij-plaatje,
-		.artikelrij-leegveld,
-		.artikelrij-tekst,
-		.artikelrij-taal {
-			display: table-cell;
-			vertical-align: middle;
-		}
-		
-		.artikelrij-leegveld.groot,
-		.artikelrij-plaatje.groot {
-			width: 3em;
-			height: 3em;			
-		}
-		
-		.artikelrij-leegveld.klein,
-		.artikelrij-plaatje.klein {
-			width: 2em;
-			height: 2em;			
-
-		}
-		
-			.artikelrij-leegveld span,
-			.artikelrij-plaatje img { 
-				display: table-cell;
-				vertical-align: middle;
-				width: inherit;
-				height: inherit;
-			}
-			
-			.groot span,
-			.groot img {			
-				-moz-border-radius: 0.45em;
-				-webkit-border-radius: 0.45em;
-				border-radius: 0.45em;
-				font-size: 1.5em;				
-			}
-			
-			.klein span,
-			.klein img {
-				-moz-border-radius: 0.3em;
-				-webkit-border-radius: 0.3em;
-				border-radius: 0.3em;
-				font-size: 1em;
-			}
-
-			span.saai {
-				background-color: #ff7621;
-			}
-
-			span.nrc {
-				background-color: #e70100;
-			}
-
-			span.weeknotes {
-				background-color: #0834b8;
-				color: white;
-				text-align: center;
-			}
-			
-
-		.groot2 {
-			padding: 0 0.4em 0 0.8em;
-		}
-
-		.klein2 {
-			padding: 0 0.2em 0 0.4em;
-		}
-
-
-		.artikelrij-taal {
-			width: 1em;
-		}		
-
-		.artikelrij-taal span {
-			position: relative;
-			top: 0.2em;
-			padding: 0.1em 0.2em 0 0.2em;
-			background-color: #ff7621;
-			-moz-border-radius: 0.3em;
-			-webkit-border-radius: 0.3em;
-			border-radius: 0.3em;
-			font-size: 0.4em;			
-			color: white;
-		}
-		
 
 
 /* images */

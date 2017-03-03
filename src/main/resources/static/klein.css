@@ -4,11 +4,16 @@ body {
 }
 
 h1 {
-	font-size: 2em;
-	line-height: 1.25;
+	font-size: 3.6em;
+	line-height: 0.4;
 }
 
 h2 {
-	font-size: 1.625em;
-	line-height: 1.15384615;
+	font-size: 1.3em;
+	line-height: 1.8;
+}
+
+h3 {
+	font-size: 2em;
+	line-height: 1.2;
 }
