@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="nl" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',0.5); background-blend-mode: screen;'">
+<html xmlns:th="http://www.thymeleaf.org" lang="nl" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',1.0); background-blend-mode: soft-light;'">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,13 +21,22 @@
 </head>
 <body>
 
+            <h1><a href="/">Krek</a></h1>
+            <h2><a href="/">een verhaal voor nu</a></h2>
+
     <div id="shotjeverhaal">
 
-	    <h1 th:text="${titel}">Titel</h1>
 	    <h2 th:text="${auteur}">Auteur</h2>
-	    <div th:utext="${tekst}">Tekst.</div>
+	    <h1 th:text="${titel}">Titel</h1>
 	    
-        
+	   <p align="center"><a th:href="${audioLink}"><img src="/icoon_audio.png" height="100" width="100" /></a></p>
+	    
+	    <div th:utext="${tekst}">Tekst.</div>
+	   
+	    <div th:utext="${oproepTotActie}">Call to action.</div>
+
+	    
 	</div>
+
 </body>
 </html>
