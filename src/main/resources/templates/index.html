@@ -40,20 +40,35 @@
                     Het is winter. Het is maandag en het is 0 graden.
                 </p>
 -->
+<!--
                 <h3 th:text="'Het was nog ' + ${donker} + ', toen in de ' + ${dagdeel} + ' van de ' + ${rangtelwoord} + ' ' + ${maand} + ' ' + ${jaar} + ' in ' + ${stad} + '...'">
                     Het was nog donker, toen in de vroege morgen van de twee en twintigste December 1946 in onze stad...
                 </h3>
-                <h2>Kies een filter</h2>
+-->
+                <h3>Het was <span th:text="${donker}">donker</span>, toen in de <span th:text="${dagdeel}">ochtend</span> van de <span th:text="${rangtelwoord}">twee en twintigste</span> <span th:text="${maand}">Maart</span> <span th:text="${jaar}">2017</span> in <span th:text="${stad}">Eindhoven</span>…
+                </h3>
 
-                <p><a class="btn btn-primary btn-lg" href="/verhaal" role="button">Go &raquo;</a></p>
+                <h2>Kies een filter</h2>
+                
+<!--
+                <ul id="filtermenu">
+	                <li><a href="/verhaal"><span style="background-color: blue;"></span>Hadewych</a></li>
+	                <li><a href="/verhaal"><span style="background-color: purple;"></span>Frits</a></li>
+                </ul>
+-->
+
+<!--                 <p><a class="btn btn-primary btn-lg" href="/verhaal" role="button">Go &raquo;</a></p> -->
             </div>
         </div>
 
-		<div th:each="filter : ${filters}">
-			<div th:text="${filter.name}">Hadewych</div>
-            <div>Red: <span th:text="${filter.color.red}">0</span></div>
-            <div>Green: <span th:text="${filter.color.green}">0</span></div>
-            <div>Blue: <span th:text="${filter.color.blue}">0</span></div>
+		<div id="filtermenu" th:each="filter : ${filters}">
+			
+			<a class="filteritem" href="/verhaal">
+			<div class="blokje" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',0.5);'"></div>
+			
+			<h4 class="tekst" th:text="${filter.name}">Hadewych</h4>
+            
+			</a>
 		</div>
 	</body>
 </html>

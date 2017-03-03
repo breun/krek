@@ -88,17 +88,33 @@ strong.shout {
 }
 
 h1 {
+	font-size: 3.6em;
+	line-height: 0.4;
+
 	margin-bottom: 0.2em;
 }
 
 h2 {
+	font-size: 1.3em;
+	line-height: 1.8;
 	margin-bottom: 0.3em;
 	font-family: "SimplisticSans-Normal";
 }
 
 h3 {
+	font-size: 2em;
+	line-height: 1.2;
 	padding-left: 0.5em;
 }
+
+h4 {
+	font-size: 0.7em;
+	line-height: 1.0; 
+	font-family: "SimplisticSans-Normal";
+	text-align: center;
+
+}
+
 
 
 #bodytekst h2 {
@@ -125,18 +141,12 @@ strong.shout { /* voor kreten aan begin van regel */
 }
 
 
-ul, ol, blockquote {
-	margin: 0 0 0 1.25em;
-	padding: 0;
-}
 
 a {
-	color: #0834b8;
+	color: white;
 }
 
 a:hover {
-	background-color: #0834b8;
-	color: white;
 	text-decoration: none;
 }
 
@@ -144,53 +154,37 @@ sup {
 	line-height: 0;
 }
 
-#menu ul,
-#footer ul {
+#filtermenu ul {
 	padding: 0;
 	margin: 0;
-}
-
-#menu li {
-	float: left;
-	display: inline;
-	padding: 0;
-	padding-right: 0.5em;
-	margin: 0;
-	text-decoration: none;
-	white-space: nowrap;
-}
-
-#menu li.menu-item-4632,
-#menu li.menu-item-4625,
-#menu li.menu-item-4538,
-#menu li.menu-item-4626,
-#menu li.menu-item-4774,
-#menu li.menu-item-5236,
-#menu li.menu-item-5234 {
-	font-style: italic;
-}
-
-#menu li:first-child {
-	font-weight: bold;
-}
-
-#menu li.menu-item-4535 a,
-#menu li.menu-item-4624 a,
-#menu li.menu-item-4787 a {
-	color: #ff7621;
-}
-
-#menu li.menu-item-4535 a:hover,
-#menu li.menu-item-4624 a:hover,
-#menu li.menu-item-4787 a:hover {
-	background-color: #ff7621;
-	color: white;
-}
-
-#footer li {
-	margin-bottom: 0;
 	list-style: none;
 }
+
+#filtermenu a {
+	float: left;
+	display: block;
+	width: 85px;
+	margin-right: 1em;
+	height: 120px;
+
+	text-decoration: none;
+}
+
+#filtermenu div.blokje {
+	display: block;
+	width: 85px;
+	height: 85px;
+	margin: 0 0 5px 0;
+	text-decoration: none;
+}
+
+#filtermenu a:hover div.blokje,
+#filtermenu a:focus div.blokje {
+	border: 5px solid white;
+	margin: -5px -5px 0 -5px;
+}
+
+
 
 
 
