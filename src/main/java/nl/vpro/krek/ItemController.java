@@ -66,6 +66,6 @@ public class ItemController {
     }
 
     private String linkForAudio(final Long itemId) {
-        return "TODO"; // TODO
+        return "/content/" + itemId + ".mp3";
     }
 }
