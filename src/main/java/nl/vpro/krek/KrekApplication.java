@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import java.util.List;
 import java.util.Locale;
 
 @SpringBootApplication
@@ -14,6 +15,13 @@ public class KrekApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KrekApplication.class, args);
 	}
+
+    @Bean
+    public ItemService itemService() {
+	    CsvDataLoader loader = new CsvDataLoader();
+	    List<Item> items = loader.loadObjectList(Item.class, "content.csv");
+	    return new ItemServiceImpl(items);
+    }
 
 	@Bean
 	public WeatherService weatherService() {

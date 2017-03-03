@@ -1,14 +1,21 @@
 package nl.vpro.krek;
 
 import lombok.Value;
-import nl.vpro.krek.Filter;
-
-import java.util.Set;
 
 @Value
 public class Item {
 
-    private Set<Filter> filters;
+    private Long id;
+
+    private String author;
+
+    private String title;
 
     private String text;
+
+//    private String audioFile;
+
+    private Filter filter;
+
+//    private Season season;
 }
