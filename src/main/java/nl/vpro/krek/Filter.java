@@ -6,14 +6,14 @@ import java.util.Optional;
 
 public enum Filter {
 
-    HADEWYCH("Hadewych", new Color(1, 1, 1)),
-    FRITS("Frits", new Color(10, 10, 10)),
-    WINSTON("Winston", new Color(20, 20, 20)),
-    MAARTEN("Maarten", new Color(40, 40, 40)),
-    JOE("Joe", new Color(60, 60, 60)),
-    OLLIE("Ollie", new Color(80, 80, 80)),
-    MAX("Max", new Color(100, 100, 100)),
-    PHILEINE("Phileine", new Color(120, 120, 120));
+    HADEWYCH("Hadewych", Color.decode("#1A203C")),
+    FRITS("Frits", Color.decode("#739DD3")),
+    WINSTON("Winston", Color.decode("#2C5AA5")),
+    MAARTEN("Maarten", Color.decode("#6BA753")),
+    JOE("Joe", Color.decode("#A54F79")),
+    OLLIE("Ollie", Color.decode("#F1E639")),
+    MAX("Max", Color.decode("#F3982C")),
+    PHILEINE("Phileine", Color.decode("#E4232B"));
 
     private String name;
     private Color color;
