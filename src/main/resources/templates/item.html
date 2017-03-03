@@ -48,30 +48,25 @@
 
     <script type="application/javascript">
         var getaudio = $('#audio')[0];
-        var playing = false;
+        var loaded = false;
 
-        $(document).on('click touchend', '.player', function() {
-            if (!$('.player').hasClass("playing")) {
-                if (playing == false) {
-                    $('.player').addClass('playing');
+        $(document).on('click', '.player', function() {
+            if (!$('.player').hasClass('playing')) {
+                if (loaded == false) {
                     getaudio.load();
-                    getaudio.play();
-                    playing = true;
-                    return false;
-                } else if (playing == true) {
-                    $('.player').addClass('playing');
-                    getaudio.play()
+                    loaded = true;
                 }
-            } else if ($('.player').hasClass('playing')) {
+                $('.player').addClass('playing');
+                getaudio.play();
+                return false;
+            } else {
                 getaudio.pause();
                 $('.player').removeClass('playing');
-                playing = true;
             }
         });
 
         $('#audio').on('ended', function() {
             $('.player').removeClass('playing');
-            playing = false;
         });
     </script>
 </body>
