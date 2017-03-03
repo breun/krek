@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="nl">
+<html xmlns:th="http://www.thymeleaf.org" lang="nl" id="homepage">
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -35,34 +35,24 @@
 
 	</head>
 	<body>
-        <div class="jumbotron">
-            <div class="container">
-                <h1>Krek</h1>
-                <h2>een verhaal voor nu</h2>
+        <div class="container">
+            <h1>Krek</h1>
+            <h2>een verhaal voor nu</h2>
 <!--
-                <p th:text="'Het is ' + ${seizoen} + '. Het is ' + ${weekdag} + ' en het is ' + ${temperatuur} + ' graden.'">
-                    Het is winter. Het is maandag en het is 0 graden.
-                </p>
+            <p th:text="'Het is ' + ${seizoen} + '. Het is ' + ${weekdag} + ' en het is ' + ${temperatuur} + ' graden.'">
+                Het is winter. Het is maandag en het is 0 graden.
+            </p>
 -->
 <!--
-                <h3 th:text="'Het was nog ' + ${donker} + ', toen in de ' + ${dagdeel} + ' van de ' + ${rangtelwoord} + ' ' + ${maand} + ' ' + ${jaar} + ' in ' + ${stad} + '...'">
-                    Het was nog donker, toen in de vroege morgen van de twee en twintigste December 1946 in onze stad...
-                </h3>
+            <h3 th:text="'Het was nog ' + ${donker} + ', toen in de ' + ${dagdeel} + ' van de ' + ${rangtelwoord} + ' ' + ${maand} + ' ' + ${jaar} + ' in ' + ${stad} + '...'">
+                Het was nog donker, toen in de vroege morgen van de twee en twintigste December 1946 in onze stad...
+            </h3>
 -->
-                <h3>Het was <span class="highlight" th:text="${donker}">donker</span>, toen in de <span class="highlight" th:text="${dagdeel}">ochtend</span> van de <span class="highlight" th:text="${rangtelwoord}">twee en twintigste</span> <span th:text="${maand}">Maart</span> <span th:text="${jaar}">2017</span> in <span class="highlight" th:text="${stad}">Eindhoven</span>…
-                </h3>
+            <h3>Het was <span class="highlight" th:text="${donker}">donker</span>, toen in de <span class="highlight" th:text="${dagdeel}">ochtend</span> van de <span class="highlight" th:text="${rangtelwoord}">twee en twintigste</span> <span th:text="${maand}">Maart</span> <span th:text="${jaar}">2017</span> in <span class="highlight" th:text="${stad}">Eindhoven</span>…
+            </h3>
 
-                <h2>Kies een filter</h2>
-                
-<!--
-                <ul id="filtermenu">
-	                <li><a href="/verhaal"><span style="background-color: blue;"></span>Hadewych</a></li>
-	                <li><a href="/verhaal"><span style="background-color: purple;"></span>Frits</a></li>
-                </ul>
--->
-
-<!--                 <p><a class="btn btn-primary btn-lg" href="/verhaal" role="button">Go &raquo;</a></p> -->
-            </div>
+            <h2>Kies een filter</h2>
+       
         </div>
 
 		<div id="filtermenu" th:each="filter : ${filters}">
