@@ -10,6 +10,8 @@
 
 		<script src="/stay_standalone.min.js" type="text/javascript" charset="utf-8"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+
 		<title th:text="${titel} + ' - ' + ${auteur} + ' - Krek'">Titel - Auteur - Krek</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Volkhov" rel="stylesheet" />
@@ -23,14 +25,19 @@
 </head>
 <body>
 
-            <h1><a href="/">Krek</a></h1>
+    <h1><a href="/">Krek</a></h1>
 
     <div id="shotjeverhaal">
 
 	    <h2 th:text="${auteur}">Auteur</h2>
 	    <h1 th:text="${titel}">Titel</h1>
 	    
-	   <p align="center"><a th:href="${audioLink}"><img src="/icoon_audio.png" height="100" width="100" /></a></p>
+	    <p align="center" class="player">
+            <img src="/icoon_audio.png" height="100" width="100" />
+            <audio id="audio">
+                <source th:attr="src=${audioLink}" type="audio/mpeg" />
+            </audio>
+        </p>
 	    
 	    <div th:utext="${tekst}">Tekst.</div>
 	   
@@ -39,5 +46,33 @@
 	    
 	</div>
 
+    <script type="application/javascript">
+        var getaudio = $('#audio')[0];
+        var playing = false;
+
+        $(document).on('click touchend', '.player', function() {
+            if (!$('.player').hasClass("playing")) {
+                if (playing == false) {
+                    $('.player').addClass('playing');
+                    getaudio.load();
+                    getaudio.play();
+                    playing = true;
+                    return false;
+                } else if (playing == true) {
+                    $('.player').addClass('playing');
+                    getaudio.play()
+                }
+            } else if ($('.player').hasClass('playing')) {
+                getaudio.pause();
+                $('.player').removeClass('playing');
+                playing = true;
+            }
+        });
+
+        $('#audio').on('ended', function() {
+            $('.player').removeClass('playing');
+            playing = false;
+        });
+    </script>
 </body>
 </html>
