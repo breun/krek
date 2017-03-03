@@ -154,14 +154,21 @@ strong.shout { /* voor kreten aan begin van regel */
 #shotjeverhaal h2,
 #shotjeverhaal div {
 	font-family: 'Volkhov';
+
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; 
 }
 
 
 
 #shotjeverhaal h1 {
-	font-size: 2.4em;
+	font-size: 2.8em;
 	line-height: 1;
-	margin-bottom: 1.0em;
+	margin-bottom: 0.8em;
 	text-align: center;
 	}
 
@@ -175,7 +182,8 @@ strong.shout { /* voor kreten aan begin van regel */
 
 #shotjeverhaal div {
 	font-size: 1.0em;
-	line-height: 1.2;
+	line-height: 1.4;
+	margin-top: 2em;
 }
 
 div#oproep {

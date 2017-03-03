@@ -33,7 +33,7 @@
 	    <h1 th:text="${titel}">Titel</h1>
 	    
 	    <p align="center" class="player">
-            <img src="/icoon_audio.png" height="100" width="100" />
+            <img th:src="${filter.name == 'Ollie'}? '/icoon_audio_black.png' : '/icoon_audio.png'" height="85" width="85" />
             <audio id="audio">
                 <source th:attr="src=${audioLink}" type="audio/mpeg" />
             </audio>
