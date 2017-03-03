@@ -11,11 +11,11 @@ public class Item {
 
     private String title;
 
-    private String text;
-
-//    private String audioFile;
+    private String callToAction;
 
     private Filter filter;
+
+
 
 //    private Season season;
 }

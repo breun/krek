@@ -9,7 +9,7 @@
 <body>
     <h1 th:text="${titel}">Titel</h1>
     <h2 th:text="${auteur}">Auteur</h2>
-    <div th:text="${tekst}">Tekst.</div>
+    <div th:utext="${tekst}">Tekst.</div>
     <div>Filternaam: <span th:text="${filter.name}">Hadewych</span></div>
     <div>Rood: <span th:text="${filter.color.red}">0</span></div>
     <div>Groen: <span th:text="${filter.color.green}">0</span></div>

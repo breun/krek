@@ -1,11 +1,20 @@
 package nl.vpro.krek;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+
+@Slf4j
 @Controller
 public class ItemController {
 
@@ -13,9 +22,12 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    public ItemController(final FilterService filterService, final ItemService itemService) {
+    private final ResourceLoader resourceLoader;
+
+    public ItemController(final FilterService filterService, final ItemService itemService, final ResourceLoader resourceLoader) {
         this.filterService = filterService;
         this.itemService = itemService;
+        this.resourceLoader = resourceLoader;
     }
 
     @GetMapping(value = "/item/{id}")
@@ -25,8 +37,10 @@ public class ItemController {
         Filter filter = item.getFilter();
         model.addAttribute("titel", item.getTitle());
         model.addAttribute("auteur", item.getAuthor());
-        model.addAttribute("tekst", item.getText());
+        model.addAttribute("tekst", textForItem(item.getId()));
+        model.addAttribute("audioLink", linkForAudio(item.getId()));
         model.addAttribute("filter", filter);
+        model.addAttribute("oproepTotActie", item.getCallToAction());
         return "item";
     }
 
@@ -38,5 +52,20 @@ public class ItemController {
                 .orElseThrow(() -> new IllegalArgumentException("No items for filter: " + filter));
         Long id = item.getId();
         return "redirect:/item/" + id;
+    }
+
+    private String textForItem(final Long itemId) {
+        String filename = itemId + ".txt";
+        Resource resource = resourceLoader.getResource("classpath:static/content/" + filename);
+        try (InputStream in = resource.getInputStream()) {
+            return StreamUtils.copyToString(in, Charset.forName("UTF-8")).replace("\n", "<br/>");
+        } catch (IOException e) {
+            log.error("Text file not found", e);
+            return "";
+        }
+    }
+
+    private String linkForAudio(final Long itemId) {
+        return "TODO"; // TODO
     }
 }
