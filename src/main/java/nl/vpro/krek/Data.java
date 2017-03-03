@@ -17,7 +17,7 @@ public class Data {
         Filter filterMaarten = new Filter("Maarten", Color.decode("#6BA753"));
         Filter filterJoe = new Filter("Joe", Color.decode("#A54F79"));
         Filter filterOllie = new Filter("Ollie", Color.decode("#F1E639"));
-        Filter filterMax = new Filter("Max", Color.decode("#1A203C"));
+        Filter filterMax = new Filter("Max", Color.decode("#F3982C"));
         Filter filterPhileine = new Filter("Phileine", Color.decode("#E4232B"));
 
         filters = Arrays.asList(filterHadewych, filterFrits, filterWinston, filterMaarten, filterJoe, filterOllie, filterMax, filterPhileine);
