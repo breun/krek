@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="nl" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',1.0); background-blend-mode: soft-light;'">
+<html xmlns:th="http://www.thymeleaf.org" lang="nl" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',1.0); background-blend-mode: soft-light;',id=${filter.name}">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,7 +24,6 @@
 <body>
 
             <h1><a href="/">Krek</a></h1>
-            <h2><a href="/">een verhaal voor nu</a></h2>
 
     <div id="shotjeverhaal">
 
@@ -35,7 +34,7 @@
 	    
 	    <div th:utext="${tekst}">Tekst.</div>
 	   
-	    <div th:utext="${oproepTotActie}">Call to action.</div>
+	    <div id="oproep" th:utext="${oproepTotActie}">Call to action.</div>
 
 	    
 	</div>

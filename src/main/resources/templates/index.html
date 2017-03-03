@@ -60,7 +60,7 @@
 		<div id="filtermenu" th:each="filter : ${filters}">
 			
 			<a class="filteritem" th:href="@{/item(filter=${filter.name})}">
-			<div class="blokje" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',0.6);'"></div>
+			<div class="blokje" th:attr="style='background-color: rgba(' + ${filter.color.red} + ',' + ${filter.color.green} + ',' + ${filter.color.blue} + ',1.0);'"></div>
 			
 			<h4 class="tekst" th:text="${filter.name}">Hadewych</h4>
             
