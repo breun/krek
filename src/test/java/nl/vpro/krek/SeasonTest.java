@@ -1,6 +1,5 @@
 package nl.vpro.krek;
 
-import nl.vpro.krek.Season;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
