@@ -2,6 +2,8 @@ package nl.vpro.krek;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -9,9 +11,14 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @SpringBootApplication
-public class KrekApplication {
+public class KrekApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(KrekApplication.class);
+    }
+
+    public static void main(String[] args) {
 		SpringApplication.run(KrekApplication.class, args);
 	}
 
