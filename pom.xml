@@ -18,8 +18,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.7</java.version><!-- The OpenShift Tomcat 7 cartridge runs on Java 7 -->
-		<tomcat.version>7.0.54</tomcat.version><!-- OpenShift 2 doesn't have Tomcat 8 yet -->
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
@@ -29,18 +28,7 @@
 		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope><!-- Packaging as WAR -->
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
-        <dependency>
-            <!-- For use with Java 7 -->
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
         </dependency>
 
         <!-- Test -->

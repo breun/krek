@@ -32,11 +32,8 @@ public class ItemController {
 
     @GetMapping(value = "/item/{id}")
     public String item(@PathVariable("id") final Long id, Model model) {
-        Item item = itemService.getById(id);
-        //.orElseThrow(() -> new IllegalArgumentException("No item for id " + id));
-        if (item == null) {
-            throw new IllegalArgumentException("No item for id " + id);
-        }
+        Item item = itemService.getById(id)
+                .orElseThrow(() -> new IllegalArgumentException("No item for id " + id));
 
         Filter filter = item.getFilter();
         model.addAttribute("titel", item.getTitle());
@@ -50,17 +47,11 @@ public class ItemController {
 
     @GetMapping(value = "/item")
     public String choose(@RequestParam("filter") final String filterName) {
-        final Filter filter = filterService.getByName(filterName);
-        //                .orElseThrow(() -> new IllegalArgumentException("Unknown filter: " + filterName));
-        if (filter == null) {
-            throw new IllegalArgumentException("Unknown filter: " + filterName);
-        }
+        final Filter filter = filterService.getByName(filterName)
+                .orElseThrow(() -> new IllegalArgumentException("Unknown filter: " + filterName));
 
-        Item item = itemService.getRandomByFilter(filter);
-//                .orElseThrow(() -> new IllegalArgumentException("No items for filter: " + filter));
-        if (item == null) {
-            throw new IllegalArgumentException("No items for filter: " + filter);
-        }
+        Item item = itemService.getRandomByFilter(filter)
+                .orElseThrow(() -> new IllegalArgumentException("No items for filter: " + filter));
 
         Long id = item.getId();
         return "redirect:/item/" + id;

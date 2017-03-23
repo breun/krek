@@ -1,7 +1,7 @@
 package nl.vpro.krek;
 
 import java.util.List;
-//import java.util.Optional;
+import java.util.Optional;
 
 public class FilterServiceImpl implements FilterService {
 
@@ -17,17 +17,9 @@ public class FilterServiceImpl implements FilterService {
     }
 
     @Override
-    public Filter getByName(final String name) {
-    //public Optional<Filter> getByName(final String name) {
-        for (Filter filter : filters) {
-            if (filter.getName().equals(name)) {
-                return filter;
-            }
-        }
-        return null;
-
-//        return filters.stream()
-//                .filter(filter -> filter.getName().equals(name))
-//                .findFirst();
+    public Optional<Filter> getByName(final String name) {
+        return filters.stream()
+                .filter(filter -> filter.getName().equals(name))
+                .findFirst();
     }
 }

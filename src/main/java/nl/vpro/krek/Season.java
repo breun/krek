@@ -1,9 +1,7 @@
 package nl.vpro.krek;
 
-import org.joda.time.DateTime;
-
-//import java.time.LocalDateTime;
-//import java.time.Month;
+import java.time.LocalDateTime;
+import java.time.Month;
 
 public enum Season {
     SPRING("lente"),
@@ -22,68 +20,35 @@ public enum Season {
         return name;
     }
 
-    public static Season of (final DateTime dateTime) {
-        int month = dateTime.getMonthOfYear();
+    public static Season of(final LocalDateTime dateTime) {
+        Month month = dateTime.getMonth();
         switch (month) {
-            case 1:
+            case JANUARY:
                 return WINTER;
-            case 2:
+            case FEBRUARY:
                 return WINTER;
-            case 3:
+            case MARCH:
                 return dateTime.getDayOfMonth() < 21 ? WINTER: SPRING;
-            case 4:
+            case APRIL:
                 return SPRING;
-            case 5:
+            case MAY:
                 return SPRING;
-            case 6:
+            case JUNE:
                 return dateTime.getDayOfMonth() < 21 ? SPRING : SUMMER;
-            case 7:
+            case JULY:
                 return SUMMER;
-            case 8:
+            case AUGUST:
                 return SUMMER;
-            case 9:
+            case SEPTEMBER:
                 return dateTime.getDayOfMonth() < 21 ? SUMMER : FALL;
-            case 10:
+            case OCTOBER:
                 return FALL;
-            case 11:
+            case NOVEMBER:
                 return FALL;
-            case 12:
+            case DECEMBER:
                 return dateTime.getDayOfMonth() < 21 ? FALL : WINTER;
             default:
                 throw new IllegalArgumentException("Unknown month: " + month);
-//        }
         }
     }
-
-//    public static Season of(final LocalDateTime dateTime) {
-//        Month month = dateTime.getMonth();
-//        switch (month) {
-//            case JANUARY:
-//                return WINTER;
-//            case FEBRUARY:
-//                return WINTER;
-//            case MARCH:
-//                return dateTime.getDayOfMonth() < 21 ? WINTER: SPRING;
-//            case APRIL:
-//                return SPRING;
-//            case MAY:
-//                return SPRING;
-//            case JUNE:
-//                return dateTime.getDayOfMonth() < 21 ? SPRING : SUMMER;
-//            case JULY:
-//                return SUMMER;
-//            case AUGUST:
-//                return SUMMER;
-//            case SEPTEMBER:
-//                return dateTime.getDayOfMonth() < 21 ? SUMMER : FALL;
-//            case OCTOBER:
-//                return FALL;
-//            case NOVEMBER:
-//                return FALL;
-//            case DECEMBER:
-//                return dateTime.getDayOfMonth() < 21 ? FALL : WINTER;
-//            default:
-//                throw new IllegalArgumentException("Unknown month: " + month);
-//        }
-//    }
 }
