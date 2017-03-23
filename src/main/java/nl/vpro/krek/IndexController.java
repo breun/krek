@@ -35,19 +35,14 @@ public class IndexController {
     @GetMapping(value = "/")
     public String index(Model model) {
         DateTime now = DateTime.now(DateTimeZone.forID("Europe/Amsterdam"));
-        //LocalDateTime now = LocalDateTime.now();
 
-        //model.addAttribute("weekdag", now.getDayOfWeek().getDisplayName(TextStyle.FULL, LOCALE));
         model.addAttribute("weekdag", DateTimeFormat.forPattern("EE").print(now));
         model.addAttribute("seizoen", Season.of(now).toString());
         model.addAttribute("temperatuur", weatherService.getTemperatureInDegreesCelcius());
 
         model.addAttribute("donker", darkness(now.getHourOfDay()));
-        //model.addAttribute("donker", darkness(now.getHour()));
         model.addAttribute("dagdeel", daypart(now.getHourOfDay()));
-        //model.addAttribute("dagdeel", daypart(now.getHour()));
         model.addAttribute("rangtelwoord", rangtelwoord(now.getDayOfMonth()));
-        //model.addAttribute("maand", StringUtils.capitalize(now.getMonth().getDisplayName(TextStyle.FULL, LOCALE)));
         model.addAttribute("maand", StringUtils.capitalize(DateTimeFormat.forPattern("MMMM").print(now.getMonthOfYear())));
         model.addAttribute("jaar", now.getYear());
         model.addAttribute("stad", locationService.getCity());

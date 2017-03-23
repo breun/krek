@@ -38,7 +38,6 @@
         </dependency>
 
         <dependency>
-            <!-- For use with Java 7 -->
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>

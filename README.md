@@ -1,6 +1,7 @@
 # VPRO Medialab hackathon literatuur 2-3 maart 2017
 
-Make sure you have [Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+This is the Java 7 compatible branch, which produces a WAR artifact for deployment on OpenShift 2.
 
-Run `./mvnw spring-boot:run` (or `mvnw.cmd` on Windows) and wait for the server to start up. Visit
-[http://localhost:8080/](http://localhost:8080/) and enjoy!
+Make sure you have [Oracle JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or newer installed.
+
+Run `./mvnw verify` (or `mvnw.cmd` on Windows) to build the WAR file.
